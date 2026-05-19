@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>macOS Can Natively Deshittify the Web, Almost</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <link rel="canonical" href="https://nickrjx.github.io/146">
+    <meta name="robots" content="index, follow">
+    <style>body { background: #1d1d21; max-width: 600px; margin: auto; font-family: monospace } a { color: #83a4f6 } fieldset { border: 1px solid #2b2a32; border-radius: 6px; } hr { height: 1px; border: none; background: #2b2a32; }</style>
+  </head>
+  <body>
+    <br><a href="/">Nick R.J. Blog</a><br><br>
+    <fieldset><legend><a href="146">May 5 2026</a> - <b>macOS Can Natively Deshittify the Web, Almost</b></legend><p>Recently I've been trying to deshittify the modern web by archiving websites into extremely plain HTML and viewing that instead.</p><p>Turns out macOS can natively do this, assuming you're only trying to archive text content. Here's how to do it:</p><p>1. Copy any text you select from a web browser to the clipboard<br>2. Paste this text into TextEdit<br>3. Under 'HTML Saving Options' in 'TextEdit > Settings > Open and Save':<br>&nbsp;&nbsp;• Set 'Document type' to 'HTML 4.01 Strict'<br>&nbsp;&nbsp;• Set 'Styling' to 'No CSS'<br>&nbsp;&nbsp;• Set 'Encoding' to 'Unicode (UTF-8)'<br>&nbsp;&nbsp;• Disable 'Preserve white space'<br>4. Save the file with the file format 'Web Page (.html)'</p><p>Enjoy a <i>pristine</i> webpage, no garbage whatsoever! Check the page source, it's incredibly clean. You can try it out with this webpage.</p><p>This works because macOS actually copied the HTML, not just the plain text on a webpage. When pasted into TextEdit, this HTML gets converted to an <a href="https://developer.apple.com/documentation/foundation/nsattributedstring">NSAttributedString</a> in Swift, which strips out all of the garbage in the HTML.</p><p>This process isn't perfect, though. Depending on how the webpage was styled, some formatting might be lost. It's worth double-checking the output. If you used this webpage as an example, note that the &lt;hr&gt; tag below wasn't included in the output.</p><p><hr></p><p>The biggest problem with this process is that it does not natively support images/videos/audio. </p><p>It's possible to support media, and I have a solution for it, but it's more complicated. It involves writing a browser extension and a Swift program. </p><p>The browser extension saves all media on a webpage to <a href="https://developer.mozilla.org/docs/Web/URI/Reference/Schemes/data">Data URLs</a> and converts them to &lt;a&gt; tags as placeholders. The Swift program replicates the needed functionality of TextEdit, and also replaces every placeholder on the webpage with an &lt;img&gt;, &lt;video&gt;, or &lt;audio&gt; tag. It works well, but I can't say it's very user-friendly. </p><p>If you have a better solution, please let me know! If any media is pasted into TextEdit, the only options for saving are 'Rich Text Document with Attachments' and 'Web Archive Document.' I don't see a way around this. I'd prefer a zero-code solution.</p></fieldset>
+    <br><a href="/">More posts</a><br><br><br>
+  </body>
+</html>
